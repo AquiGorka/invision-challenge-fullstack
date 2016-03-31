@@ -1,0 +1,22 @@
+{
+  "name": "invision-challenge-fullstack",
+  "version": "0.1.0",
+  "description": "InVision Challenge Fullstack",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "producer": "node producer.js",
+    "test": "mocha"
+  },
+  "author": "Gorka",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.4.1",
+    "qs": "^6.1.0",
+    "request-promise": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "node-mocks-http": "^1.5.2"
+  }
+}
