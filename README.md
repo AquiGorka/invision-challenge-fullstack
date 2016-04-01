@@ -25,18 +25,21 @@ At a minimum, we would like to see the following implemented:
 ### How to
 
 > Server
+
 ```sh
 node server.js [OPTIONAL PORT]
 ```
 
 > Client
+
 ```sh
 node client.js [OPTIONAL PORT]
 ```
-or
-open up a browser to http://localhost:[PORT]/arithmetic-expression?exp=1%2B1=
-
+```
+or open up a browser to http://localhost:[PORT]/arithmetic-expression?exp=1%2B1=
+```
 > Tests
+
 ```sh
 mocha
 ```
