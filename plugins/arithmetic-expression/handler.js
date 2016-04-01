@@ -4,8 +4,7 @@ var qs = require('qs'),
   logger = require('../../lib/logger');
 
 module.exports = (req, res, next) => {
-  //var exp = qs.parse(req._parsedUrl.query).exp,
-  var exp = qs.parse(url.parse(req.url).query).exp;
+  var exp = qs.parse(url.parse(req.url).query).exp,
     str = '';
 
   // no exp
@@ -17,7 +16,7 @@ module.exports = (req, res, next) => {
     return;
   }
 
-  // wrong exp
+  // parse exp
   var parsedExpression = utils.parseExpression(exp);
   if (!( (Number.isInteger(parsedExpression.val1) && parsedExpression.val1 > 0) &&
           (Number.isInteger(parsedExpression.val2)) && parsedExpression.val2 > 0) ) {
