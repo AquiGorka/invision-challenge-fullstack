@@ -1,7 +1,7 @@
 /**
  * Parses an expression of the form positive integer, plus sign, positive integer, equal sign and returns an object with the two integers
- * @param {string} str The expression
- * @returns {object} An object with two integer values
+ * @param {String} str The expression
+ * @returns {Object} An object with two integer values
  */
 var parseExpression = str => {
   var data = str.replace('=', '').split('+');
@@ -15,7 +15,7 @@ var parseExpression = str => {
  * Returns an arithmetic expression between two numbers.
  * @param {int} v1 The first number.
  * @param {int} v2 The second number.
- * @param {string} [+] op The arithmetic operand to resolve.
+ * @param {String} [+] op The arithmetic operand to resolve.
  * @returns {int} The sum of the two numbers if the operand is the plus sign.
  * @returns {null} Returns null if the operand is not the plus sign.
  */
