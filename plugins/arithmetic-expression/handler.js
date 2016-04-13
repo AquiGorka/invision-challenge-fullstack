@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
   var exp = qs.parse(url.parse(req.url).query).exp,
     str = '';
 
-  // no exp
+  // no expression
   if (!exp) {
     str = 'No expression in query string';
     logger.error('Arithmetic Expression: Error: ' + str);
@@ -16,8 +16,10 @@ module.exports = (req, res, next) => {
     return;
   }
 
-  // parse exp
+  // parse expression
   var parsedExpression = utils.parseExpression(exp);
+
+  // if there is an error with the parsed expression: it did not return two positive integers
   if (!( (Number.isInteger(parsedExpression.val1) && parsedExpression.val1 > 0) &&
           (Number.isInteger(parsedExpression.val2)) && parsedExpression.val2 > 0) ) {
     str = 'Malformed expression: Please provide an expression with the following format: positive integer, plus sign, positive integer, equal sign (e.g. \'1+1=\'). Make sure you url encode the plus sign to %2B';
@@ -27,8 +29,10 @@ module.exports = (req, res, next) => {
     return;
   }
 
-  // evaluate exp
+  // evaluate expression
   var result = utils.evaluate(parsedExpression.val1, parsedExpression.val2, '+');
+
+  // if the result is not an integer
   if (!result || !Number.isInteger(result)) {
     str = 'Something went wrong on our side: All artihmetic expressions are created equal but some arithmetic expressions are more equal than others';
     logger.error('Arithmetic Expression: Error: ' + str);
